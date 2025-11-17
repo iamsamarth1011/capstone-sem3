@@ -20,7 +20,7 @@ export default function App() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/signup', form);
+      const response = await axios.post('https://capstone-sem3-iesl.onrender.com/api/signup', form);
       localStorage.setItem('token', response.data.token);
       setView('users');
       fetchUsers();
@@ -33,7 +33,7 @@ export default function App() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/login', form);
+      const response = await axios.post('https://capstone-sem3-iesl.onrender.com/api/login', form);
       localStorage.setItem('token', response.data.token);
       setView('users');
       fetchUsers();
@@ -47,7 +47,7 @@ export default function App() {
       const token = localStorage.getItem('token');
       if (!token) return;
       
-      const response = await axios.get('http://localhost:3001/api/users', {
+      const response = await axios.get('https://capstone-sem3-iesl.onrender.com/api/users', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUsers(response.data);
